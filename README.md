@@ -28,8 +28,9 @@ After this step is done and you application is up an running you can go to next 
 
  Install nodejs, you can do that by using NVM on Mac or Windows:
  
+ ### MacOS:
+
  ```bash 
- MacOS:
  Install homebrew manager: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
  ```
 
@@ -49,7 +50,7 @@ If you completed this step make a command to use this particular nodejs version
 nvm use 16.20.20
 ```
 
-or Windows users:
+### Windows
 
 You have to download nvm from nvm-windows [repository](https://github.com/coreybutler/nvm-windows/releases)
 
