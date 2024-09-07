@@ -19,4 +19,8 @@ export class LandingPage {
         await this.formContainer.getByPlaceholder(placeHolder, { exact: true }).click()
         await this.pageContainer.getByText('Załóż konto').click({ position: {x: 1, y: 1}});
     }
+    
+    async fillUserFormDataMandatory(placeHolder: string, fieldsName: string) {
+        await this.formContainer.getByPlaceholder(placeHolder, { exact: true }).fill(fieldsName)
+    }
 }
