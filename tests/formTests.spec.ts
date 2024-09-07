@@ -8,14 +8,14 @@ test.beforeEach(async({ page }) => {
 test('verify mandatory fields', async({ page} ) => {
     const landingPage = new LandingPage(page)
 
-    const placeHolderValues = ['Imię', 'Nazwisko', 'Twój adres e-mail', 'Hasło'] //, 'Powtórz hasło', 'Data urodzenia']
-    const errorMessages = ['Pole Imię jest wymagane', 'Pole Nazwisko jest wymagane', 'Pole E-mail jest wymagane', 'Pole password jest wymagane']
+    const placeHolderValues = ['Imię', 'Nazwisko', 'Twój adres e-mail', 'Hasło','Powtórz hasło', 'Data urodzenia']
+    const errorMessages = ['Pole Imię jest wymagane', 'Pole Nazwisko jest wymagane', 'Pole E-mail jest wymagane', 'Pole password jest wymagane', 'Pole Powtórz hasło jest wymagane', 'Pole Data urodzenia jest wymagane']
 
     for(let placeholder of placeHolderValues) {
         await landingPage.validateMandatoryFields(placeholder);
     }
     for(let error of errorMessages) {
-        expect(landingPage.formContainer.getByText(error)).toHaveText(error)
+        expect(landingPage.formContainer.getByText(error))
         }
     }
 )

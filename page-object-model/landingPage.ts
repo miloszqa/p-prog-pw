@@ -17,6 +17,6 @@ export class LandingPage {
      */
     async validateMandatoryFields(placeHolder: string) {
         await this.formContainer.getByPlaceholder(placeHolder, { exact: true }).click()
-        await this.pageContainer.click();
+        await this.pageContainer.getByText('Załóż konto').click({ position: {x: 1, y: 1}});
     }
 }
