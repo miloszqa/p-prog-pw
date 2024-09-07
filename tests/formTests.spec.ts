@@ -16,7 +16,6 @@ test('verify mandatory fields', async({ page} ) => {
     }
     for(let error of errorMessages) {
         expect(landingPage.formContainer.getByText(error)).toHaveText(error)
-        console.log(error)
         }
     }
 )
