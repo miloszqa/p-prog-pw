@@ -19,8 +19,13 @@ export class LandingPage {
         await this.formContainer.getByPlaceholder(placeHolder, { exact: true }).click()
         await this.pageContainer.getByText('Załóż konto').click({ position: {x: 1, y: 1}});
     }
-    
-    async fillUserFormDataMandatory(placeHolder: string, fieldsName: string) {
-        await this.formContainer.getByPlaceholder(placeHolder, { exact: true }).fill(fieldsName)
+
+    /**
+     * 
+     * @param placeHolder this takes argument of description in placeholder input fields
+     * @param fieldsValue this is the value passed into input fields - string
+     */
+    async fillUserFormDataMandatory(placeHolder: string, fieldsValue: string) {
+        await this.formContainer.getByPlaceholder(placeHolder, { exact: true }).fill(fieldsValue)
     }
 }
