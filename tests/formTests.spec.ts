@@ -17,10 +17,10 @@ test('verify mandatory fields', async({ page} ) => {
     }
 
     for(let error of errorMessages) {
-        expect(landingPage.formContainer.getByText(error)).toContainText(error)
+        await expect(landingPage.formContainer.getByText(error)).toBeVisible()
     }
-    }
-)
+
+})
 
 test('create user with valid form data', async( {page} ) => {
     const landingPage = new LandingPage(page)
