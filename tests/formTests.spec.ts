@@ -13,9 +13,9 @@ test('verify mandatory fields', async({ page} ) => {
 
     for(let placeholder of placeHolderValues) {
         await landingPage.validateMandatoryFields(placeholder);
-    }
-    for(let error of errorMessages) {
-        expect(landingPage.formContainer.getByText(error))
+        for(let error of errorMessages) {
+            expect(landingPage.formContainer.getByText(error))
         }
+    }
     }
 )
