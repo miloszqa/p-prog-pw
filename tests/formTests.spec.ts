@@ -14,16 +14,16 @@ test('verify mandatory fields', async({ page} ) => {
 
     for(let placeholder of placeHolderValues) {
         await landingPage.validateMandatoryFields(placeholder)
-        for(let error of errorMessages) {
-            expect(landingPage.formContainer.getByText(error))
-        }
+    }
+
+    for(let error of errorMessages) {
+        expect(landingPage.formContainer.getByText(error)).toContainText(error)
     }
     }
 )
 
 test.only('create user with valid form data', async( {page} ) => {
     const landingPage = new LandingPage(page)
-
     const placeHolderValues: string[] = ['Imię', 'Nazwisko', 'Twój adres e-mail', 'Hasło','Powtórz hasło']
     const data: string[] = ['Testname', 'Testsurname', 'valid@email.com', 'ValidPassword1234!', 'ValidPassword1234!']
 
@@ -39,5 +39,16 @@ test.only('create user with valid form data', async( {page} ) => {
 
     const dateVerificator = await landingPage.formContainer.getByPlaceholder('Data urodzenia').inputValue()
     expect(dateVerificator).toEqual(birthDate)
-     
+
+    await landingPage.mandatoryCheckboxCheck(true)
+    expect(landingPage.checkbox.isChecked()).toBeTruthy()
+
+
+    // I tried to make a loop to navigate across all checkboxes (2) and check them but it is flaky
+    // const allCheckboxes = landingPage.checkbox
+    //     //console.log(allCheckboxes)
+    //     for(const box of await allCheckboxes.all()) {
+    //         console.log(box)
+    //         await box.check( {force: true} )
+    //     }
 })
