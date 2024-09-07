@@ -1,0 +1,13 @@
+Test Objective: Verify Ability to cover form registration, validate mandatory fields
+
+Preconditions: User is on the registration page (localhost)
+
+(note here: I didn't want to make it step-by step automation as I tried to play around some functions, methods, loops making it a bit more independent and less flaky)
+
+Steps:
+- Navigate to homepage
+- Verify mandatory fields (listed in the Array) and error messages
+- fill up proper data
+- Include one checkbox which is mandatory
+- Submit the form
+- Verify landing on the next page
