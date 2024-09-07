@@ -22,7 +22,7 @@ test('verify mandatory fields', async({ page} ) => {
     }
 )
 
-test.only('create user with valid form data', async( {page} ) => {
+test('create user with valid form data', async( {page} ) => {
     const landingPage = new LandingPage(page)
     const placeHolderValues: string[] = ['Imię', 'Nazwisko', 'Twój adres e-mail', 'Hasło','Powtórz hasło']
     const data: string[] = ['Testname', 'Testsurname', 'valid@email.com', 'ValidPassword1234!', 'ValidPassword1234!']
