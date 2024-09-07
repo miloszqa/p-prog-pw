@@ -41,7 +41,7 @@ test.only('create user with valid form data', async( {page} ) => {
     expect(dateVerificator).toEqual(birthDate)
 
     await landingPage.mandatoryCheckboxCheck(true)
-    expect(landingPage.checkbox.isChecked()).toBeTruthy()
+    expect(await landingPage.checkbox.isChecked()).toBeTruthy()
 
 
     // I tried to make a loop to navigate across all checkboxes (2) and check them but it is flaky
