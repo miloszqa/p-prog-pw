@@ -43,6 +43,9 @@ test('create user with valid form data', async( {page} ) => {
     await landingPage.mandatoryCheckboxCheck(true)
     expect(await landingPage.checkbox.isChecked()).toBeTruthy()
 
+    await expect(landingPage.submitButton).toHaveText('Zarejestruj')
+    await landingPage.clickOnSubmitButton()
+
 
     // I tried to make a loop to navigate across all checkboxes (2) and check them but it is flaky
     // const allCheckboxes = landingPage.checkbox
