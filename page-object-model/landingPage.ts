@@ -1,16 +1,18 @@
-import { expect, Locator, Page } from "@playwright/test"
+import { Locator, Page } from "@playwright/test"
 
 export class LandingPage {
     readonly page: Page
     readonly pageContainer: Locator
     readonly formContainer: Locator
     readonly checkbox: Locator
+    readonly submitButton: Locator
 
     constructor(page: Page) {
         this.page = page
         this.pageContainer = page.locator('.container')
         this.formContainer = page.locator('.form');
         this.checkbox = page.locator('form div').filter({ hasText: 'Akceptuję regulamin oraz politykę prywatności' }).locator('div')
+        this.submitButton = this.formContainer.getByRole('button')
     }
 
     /**
@@ -59,5 +61,9 @@ export class LandingPage {
         //     await box.uncheck( {force: true} )
         //     await box.check( {force: true })
         // }
+    }
+
+    async clickOnSubmitButton() {
+        await this.submitButton.click()
     }
 }
