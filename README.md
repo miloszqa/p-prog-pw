@@ -12,18 +12,18 @@
  ### MacOS:
 
  ```bash 
- Install homebrew manager: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
  ```
 
  After homebrew is installed install nvm:
  ```bash
- homebrew: brew install nvm
+ brew install nvm
  ```
 
 Once this step is done you can install nodejs. For this project we are going to use v16.20.2 which needs to be installed. Tests should work on every nodejs version but to make life easier we can use the specific version.
 
 ```bash
-install: nvm install 16.20.2
+nvm install 16.20.2
 ```
 If you completed this step make a command to use this particular nodejs version
 
