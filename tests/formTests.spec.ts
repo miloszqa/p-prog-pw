@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test"
 import { LandingPage } from "../page-object-model/landingPage"
 import { getDateMinusFourYears } from "../utils/getDateMinusFourYears"
+import { ConfirmationPage } from "../page-object-model/confirmationPage"
 
 test.beforeEach(async({ page }) => {
     await page.goto('/')
@@ -24,6 +25,7 @@ test('verify mandatory fields', async({ page} ) => {
 
 test('create user with valid form data', async( {page} ) => {
     const landingPage = new LandingPage(page)
+    const confirmationPage = new ConfirmationPage(page)
     const placeHolderValues: string[] = ['Imię', 'Nazwisko', 'Twój adres e-mail', 'Hasło','Powtórz hasło']
     const data: string[] = ['Testname', 'Testsurname', 'valid@email.com', 'ValidPassword1234!', 'ValidPassword1234!']
 
@@ -43,10 +45,6 @@ test('create user with valid form data', async( {page} ) => {
     await landingPage.mandatoryCheckboxCheck(true)
     expect(await landingPage.checkbox.isChecked()).toBeTruthy()
 
-    await expect(landingPage.submitButton).toHaveText('Zarejestruj')
-    await landingPage.clickOnSubmitButton()
-
-
     // I tried to make a loop to navigate across all checkboxes (2) and check them but it is flaky
     // const allCheckboxes = landingPage.checkbox
     //     //console.log(allCheckboxes)
@@ -54,4 +52,11 @@ test('create user with valid form data', async( {page} ) => {
     //         console.log(box)
     //         await box.check( {force: true} )
     //     }
+
+    await expect(landingPage.submitButton).toHaveText('Zarejestruj')
+    await landingPage.clickOnSubmitButton()
+
+    await expect(confirmationPage.header).toHaveText(`${data[0]}, dziękujemy za rejestrację!`)
+    await expect(confirmationPage.paragraph).toHaveText(`Na Twój adres email ${data[2]} wysłaliśmy wiadomość z linkiem aktywującym konto`)
+
 })
