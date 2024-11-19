@@ -4,7 +4,7 @@
 ## How to run tests on your local machine:
 
  The first step you need to run application on your local machine. 
- Please refer to the public repository hosted here: [application](https://github.com/sparingsoftware/qa-form)
+ Please refer to the public repository hosted here: [application]
 
 
  Install nodejs, you can do that by using NVM on Mac or Windows:
